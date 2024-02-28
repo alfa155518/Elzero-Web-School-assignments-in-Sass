@@ -1,0 +1,31 @@
+.school {
+  padding: 20px;
+  direction: "ltr";
+  margin-left: 20px;
+}
+.school .school-child {
+  padding: calc(20px - 10px);
+}
+.school:hover .school-child {
+  padding: 50px;
+}
+
+/*##########################*/
+/* Theme Version: 1.0 */
+/* Website Theme Main Color Is: red*/
+/* Website Theme Alternate Color Is: blue */
+/*##########################*/
+.class {
+  color: red;
+}
+
+/*##########################*/
+.class {
+  color: red;
+}
+
+/*##########################*/
+.box {
+  background-color: #eee;
+  text-align: center;
+}
