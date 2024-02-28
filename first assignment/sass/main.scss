@@ -1,0 +1,218 @@
+// from assignment 9
+@use "./Project_Folder/Helpers/vars";
+@use "./Project_Folder/Helpers/functions";
+@use "./Project_Folder/layout/header";
+@use "./Project_Folder/layout/footer";
+
+// 1)
+.content > {
+  .box {
+    padding: 15px;
+  }
+}
+.content {
+  > .box {
+    > .title {
+      font-size: 18px;
+    }
+  }
+}
+.content {
+  .cat {
+    padding: 15px;
+  }
+}
+.content {
+  &.premium {
+    &::before {
+      content: "Premium Box";
+    }
+  }
+}
+.content {
+  &.premium {
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+//################################
+
+// 2)
+.class > {
+  .child {
+    padding: 10px;
+  }
+}
+.class {
+  > .child {
+    padding: 10px;
+  }
+}
+.class {
+  > {
+    .child {
+      padding: 10px;
+    }
+  }
+}
+
+//################################
+
+// 3)
+.class {
+  font: {
+    weight: bold;
+    size: 20px;
+  }
+}
+
+//################################
+
+// 4)
+
+.parent {
+  // here implement margin only child of parent call .sibling
+  & + .sibling {
+    margin: auto {
+      top: 10px;
+    }
+    // here implement padding on child of sibling call last
+    & ~ .last {
+      padding: 10px;
+    }
+  }
+}
+
+//################################
+
+// 5)
+
+.widget {
+  background-color: white;
+  padding: 20px;
+}
+
+.main-border {
+  border: 1px solid #ccc;
+}
+
+.my-class {
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+.my-class {
+  @extend .widget;
+}
+
+.my-class {
+  @extend .main-border;
+}
+
+//################################
+
+// 6)
+
+%widget {
+  background-color: white;
+  padding: 20px;
+}
+
+%main-border {
+  border: 1px solid #ccc;
+}
+
+%my-class {
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+.my-class {
+  @extend %widget;
+}
+.my-class {
+  @extend %main-border;
+}
+.my-class {
+  @extend %my-class;
+}
+
+//################################
+
+// 7)
+
+$media: "max-width: 575px";
+
+.box h2,
+.box p {
+  font-size: 2px;
+  @media ($media) {
+    & {
+      font-size: 16px;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+//################################
+
+// 8)
+
+// The Code
+// Do Not Edit Here
+$red: #e91e63;
+$green: #009688;
+
+// Solution
+$link-color: $red;
+$link-hover: $green;
+
+// Do Not Edit Here
+.box a {
+  color: $link-color;
+  &:hover {
+    color: $link-hover;
+  }
+}
+
+// Needed Output
+// .box a {
+//   color: #009688;
+// }
+// .box a:hover {
+//   color: #e91e63;
+// }
+
+//################################
+
+// 9)
+
+// @use "./Project_Folder/Helpers/vars";
+// @use "./Project_Folder/Helpers/functions";
+// @use "./Project_Folder/layout/header";
+// @use "./Project_Folder/layout/footer";
+
+// - Project_Folder
+// --- Helpers
+// ------ _vars.scss
+// ------ _functions.scss
+// --- Layout
+// ------ _header.scss
+// ------ _footer.scss
+
+//################################
+
+// 10)
+.box {
+  font-size: 20px;
+  &-holder {
+    width: 1000px;
+    &-content {
+      margin: auto;
+    }
+  }
+}
