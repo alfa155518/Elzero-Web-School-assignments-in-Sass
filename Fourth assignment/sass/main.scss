@@ -1,0 +1,35 @@
+// 1)
+
+$num: 2;
+$start: 100;
+
+@function double($size) {
+  @return $size * $num;
+}
+
+@for $i from 0 through 4 {
+  $width: $start * pow($num, $i);
+  $height: double($width);
+
+  .box-#{$width} {
+    width: #{$width}px;
+    height: #{$height}px;
+  }
+}
+
+/******************************/
+// 2)
+
+@function get-total($sizes...) {
+  $init: 0;
+  @each $size in $sizes {
+    $init: $size + $init;
+  }
+  @return $init;
+}
+.box {
+  top: get-total(100, 50, 20);
+  right: get-total(100, 50);
+}
+
+/*######## All Solutions made By Ahmed Hassob ########### */
